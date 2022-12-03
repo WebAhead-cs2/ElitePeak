@@ -8,4 +8,5 @@ server.listen(3000, () =>
 server.get("/", (req, res) => {
     const html = templates.home();
     res.send(html);
+    
   });
