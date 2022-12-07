@@ -12,8 +12,8 @@ function layout(content) {
           <header>
             <nav>
               <a href="/">Home</a>
-              <a href="/new-post">Write new post</a>
-              <a href="/posts">about us</a>
+              <a href="/new-post></a>
+              <a href="/posts"></a>
             </nav>
           </header>
           ${content}
