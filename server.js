@@ -17,3 +17,4 @@ server.get("/SignUp", (req, res) => {
   const html = templates.SignUp();
   res.send(html);
 });
+
