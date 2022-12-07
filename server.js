@@ -57,4 +57,3 @@ server.get("/payment",(req,res)=>{
  const html=templates.payment();
   res.send(html);
 });
-
