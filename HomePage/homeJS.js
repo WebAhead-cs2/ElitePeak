@@ -5,7 +5,6 @@ const roomsCloseBtn = document.getElementById('rooms-close-btn');
 
 // event listeners
 searchBtn.addEventListener('click', gethotelList);
-hotelList.addEventListener('click', gethotelrooms);
 roomsCloseBtn.addEventListener('click', () => {
     hotelDetailsContent.parentElement.classList.remove('showrooms');
 });
@@ -40,9 +39,7 @@ async function  gethotelList()
              if(data.result){
             data.result.forEach(hotel => {
                 let imageUrl
-            //    callback(hotel.hotel_id)
-            //    .then(
-               // (imageUrl)=>{console.log(imageUrl);
+            
                let result = hotel.main_photo_url.replace("square60", "square1000");
                html += `
                     <div class = "hotel-item" data-id = "${hotel.hotel_id
@@ -57,38 +54,25 @@ async function  gethotelList()
                             <p>${hotel.review_score_word
                             }</p>
                             </div>
-                            <a href = "#" class = "rooms-btn">See availability</a>
+                            <a href = "#" id='room' class = "rooms-btn">See availability</a>
                         </div>
                     </div>
                 `;
                 console.log("done");
-            //}
-                //).catch(console.log("image not download"));
+           
             });
             hotelList.classList.remove('notFound');
         } else{
             html = "Sorry, we didn't find any hotel!";
             hotelList.classList.add('notFound');
         }
-    //};
+
         {console.log("final")
-        hotelList.innerHTML = html;}//)
+        hotelList.innerHTML = html;}
     });
+
+   
+
 }
-// function gethotelrooms()
-// {
-//     const options = {
-//         method: 'GET',
-//         headers: {
-//             'X-RapidAPI-Key': '404cb97ca6msh0efa166abb29578p1c01dajsn24f3d99b70ca',
-//             'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com'
-//         }
-//     };
-    
-//     fetch('https://apidojo-booking-v1.p.rapidapi.com/locations/auto-complete?text=hanoi&languagecode=en-us', options)
-//         .then(response => response.json())
-//         .then(response => console.log(response))
-//         .catch(err => console.error(err));
-// }
 
 

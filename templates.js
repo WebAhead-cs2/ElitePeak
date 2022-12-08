@@ -71,80 +71,50 @@ function layout(content) {
   `);
   }
   function payment(){
-    return layout(`<section class="p-4 p-md-5" 
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-10 col-lg-8 col-xl-5">
-      <div class="card rounded-3">
-        <div class="card-body p-4">
-          <div class="text-center mb-4">
-            <h3>Settings</h3>
-            <h6>Payment</h6>
-          </div>
-          <form id='form'action="">
-            <p class="fw-bold mb-4 pb-2">Saved cards:</p>
-
-            <div class="d-flex flex-row align-items-center mb-4 pb-1">
-              <img class="img-fluid" src="https://img.icons8.com/color/48/000000/mastercard-logo.png" />
-              <div class="flex-fill mx-3">
-                <div class="form-outline">
-                  <input type="text" id="formControlLgXc" class="form-control form-control-lg"
-                    value="**** **** **** 3193" />
-                  <label class="form-label" for="formControlLgXc">Card Number</label>
+    return layout(`
+    <div class="col-md-7 col-sm-12 p-0 box">
+      <div class="card rounded-0 border-0 card2" id="paypage">
+        <div class="form-card" >
+                    <h2 id="heading2" class="text-danger">Payment Method</h2>
+                    <div class="radio-group">
+                        <div class='radio' data-value="credit"><img src="https://i.imgur.com/28akQFX.jpg" width="200px" height="60px"></div>
+                        <div class='radio' data-value="paypal"><img src="https://i.imgur.com/5QFsx7K.jpg" width="200px" height="60px"></div>
+                        <br>
+                    </div>
+                    <form method='post'>
+                    <label class="pay">Name on Card</label>
+                    <input type="text" name="name_on_card" id="name_on_card">
+                    <div class="row">
+                        <div class="col-8 col-md-6">
+                            <label class="pay">Card Number</label>
+                            <input type="text" name="card_number" id="card_number" placeholder="0000-0000-0000-0000" >
+                        </div>
+                        <div class="col-4 col-md-6">
+                            <label class="pay">CVV</label>
+                            <input type="password" name="cvv" placeholder="&#9679;&#9679;&#9679;" class="placeicon" minlength="3" maxlength="3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="pay">Expiration Date</label>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="text" name="expiration_date" id="expiration_date" placeholder="MM/YY" minlength="5" maxlength="5">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="submit" value="MAKE A PAYMENT &nbsp; &#xf178;" class="btn btn-info placeicon">
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <a href="#!">Remove card</a>
-            </div>
-
-            <div class="d-flex flex-row align-items-center mb-4 pb-1">
-              <img class="img-fluid" src="https://img.icons8.com/color/48/000000/visa.png" />
-              <div class="flex-fill mx-3">
-                <div class="form-outline">
-                  <input type="text" id="formControlLgXs" class="form-control form-control-lg"
-                    value="**** **** **** 4296" />
-                  <label class="form-label" for="formControlLgXs">Card Number</label>
-                </div>
-              </div>
-              <a href="#!">Remove card</a>
-            </div>
-
-            <p class="fw-bold mb-4">Add new card:</p>
-
-            <div class="form-outline mb-4">
-              <input type="text" id="formControlLgXsd" class="form-control form-control-lg"
-                value="Anna Doe" />
-              <label class="form-label" for="formControlLgXsd">Cardholder's Name</label>
-            </div>
-
-            <div class="row mb-4">
-              <div class="col-7">
-                <div class="form-outline">
-                  <input type="text" id="formControlLgXM" class="form-control form-control-lg"
-                    value="1234 5678 1234 5678" />
-                  <label class="form-label" for="formControlLgXM">Card Number</label>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="form-outline">
-                  <input type="password" id="formControlLgExpk" class="form-control form-control-lg"
-                    placeholder="MM/YYYY" />
-                  <label class="form-label" for="formControlLgExpk">Expire</label>
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="form-outline">
-                  <input type="password" id="formControlLgcvv" class="form-control form-control-lg"
-                    placeholder="Cvv" />
-                  <label class="form-label" for="formControlLgcvv">Cvv</label>
-                </div>
-              </div>
-            </div>
-
-            <button class="btn btn-success btn-lg btn-block">Add card</button>
-          </form>
-        </div>
+                </form>
       </div>
     </div>
   </div>
-</section>`)
-  }
+</div>
+</div>
+</div>
+</div>`)
+}
   module.exports = {home,SignUp,logIn,payment};
