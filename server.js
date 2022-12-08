@@ -1,8 +1,10 @@
 const express = require("express");
 const templates = require("./templates");
 const server = express();
-const db = require("./database/connection");
+// const db = require("./database/connection");
+const db = require("./database/payconnection");
 const bcrypt = require("bcrypt");
+
 
 server.use(express.static("assest"));
 server.use(express.urlencoded());
@@ -39,15 +41,7 @@ server.post("/SignUp", (req, res) => {
       });
 });
 server.post("/LogIn",(req,res)=>{
-  const email =  db.query("SELECT email FROM users");
-  const user=req.body.email;
-   console.log(user);
-  console.log(email);
-  const saltRounds=10;
-  bcrypt.hash(password, saltRounds)
   
-    const salt = bcrypt.genSaltSync(saltRounds);
-    const hash = bcrypt.hashSync(password, salt);
  
 });
 
@@ -57,3 +51,27 @@ server.get("/payment",(req,res)=>{
  const html=templates.payment();
   res.send(html);
 });
+
+server.post("/payment", (req,res)=>{
+const {name_on_card, card_number, cvv, expiration_date} = req.body;
+   const saltRounds = 10;
+   bcrypt
+   .hash(card_number, saltRounds)
+   bcrypt
+   .hash(cvv, saltRounds)
+   bcrypt
+   .hash(expiration_date, saltRounds)
+db.query(`INSERT INTO paycard (name_on_card, card_number, cvv, expiration_date) VALUES ($1, $2, $3, $4) RETURNING *`, [name_on_card, hash, cvv, expiration_date])
+.then(() => {
+  res.redirect('/');
+})
+.catch(error => {
+  console.log(error);
+  res.status(500).send(`<h1>Something went wrong saving your data</h1>`);
+});
+
+});
+// name_on_card VARCHAR(255) NOT NULL,
+// card_number INTEGER NOT NULL,
+// cvv INTEGER NOT NULL,
+// expiration_date VARCHAR(12) NOT NULL
