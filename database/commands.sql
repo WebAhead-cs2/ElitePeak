@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS users, paycard  CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -13,6 +13,14 @@ CREATE TABLE users (
   phone VARCHAR(11),
   gender VARCHAR(6)
 
+);
+
+
+CREATE TABLE paycard(
+    name_on_card VARCHAR(255) NOT NULL,
+    card_number VARCHAR(255) NOT NULL,
+    cvv VARCHAR(255) NOT NULL,
+    expiration_date VARCHAR(255) NOT NULL
 );
 
     
