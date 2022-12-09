@@ -1,3 +1,5 @@
+
+import { getroomList } from "../hotelRoomsPage/hotelRooms";
 const searchBtn = document.getElementById('search-btn');
 const hotelList = document.getElementById('hotel');
 const hotelDetailsContent = document.querySelector('.hotel-details-content');
@@ -135,6 +137,8 @@ function gethotelrooms(e)
        let arrival_date=hotelItemDetails[2]
        let letrec_guest_qty=hotelItemDetails[3]
        console.log(departure_date);
+       window.location.href = "../hotelRoomsPage/hotelRooms.html";
+       getroomList(hotel_id,departure_date,arrival_date,letrec_guest_qty);
         // gethotelList(hotel_id,departure_date,arrival_date,letrec_guest_qty)
     }
 }

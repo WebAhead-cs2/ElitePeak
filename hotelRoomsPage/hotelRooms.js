@@ -1,8 +1,12 @@
+
+//const db = require("../database/connection.js");
 const roomList = document.getElementById('room');
-//function  getroomList(hotel_id,departure_date,arrival_date,rec_guest_qty)
-getroomList();
-function  getroomList()
-{
+//getroomList();
+function  getroomList(hotel_id,departure_date,arrival_date,rec_guest_qty){
+//db.query(`INSERT INTO reservation (hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES ($1, $2, $3, $4) RETURNING *`, [hotel_id, departure_date, arrival_date, rec_guest_qty])    
+
+// function  getroomList()
+// {
     const options = {
         method: 'GET',
         headers: {
@@ -66,3 +70,4 @@ function  getroomList()
         })
         .catch(err => console.error(err));
 }
+export default {getroomList};

@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users, paycard  CASCADE;
+DROP TABLE IF EXISTS users, paycard  CASCADE, reservation;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -21,6 +21,12 @@ CREATE TABLE paycard(
     card_number VARCHAR(255) NOT NULL,
     cvv VARCHAR(255) NOT NULL,
     expiration_date VARCHAR(255) NOT NULL
+);
+CREATE TABLE reservation(
+    hotel_id VARCHAR(255) NOT NULL,
+    departure_date VARCHAR(255) NOT NULL,
+    arrival_date VARCHAR(255) NOT NULL,
+    rec_guest_qty VARCHAR(255) NOT NULL
 );
 
     
