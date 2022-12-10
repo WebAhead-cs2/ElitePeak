@@ -22,8 +22,9 @@ function layout(content) {
         ${content}
 
 
-        <script src='../Homepage/homeJS.js'></script>
-        <script src='../hotelRoomsPage/hotelRooms.js'></script>
+        <script src="./home.js"></script>
+        <script src="./rooms.js"></script>
+        
 
 
 
@@ -32,7 +33,7 @@ function layout(content) {
   `);
 }
 
-function  home(email) {
+function home(email) {
   if (email) {
     return layout(/*html */ `
       <h1>Welcome back ${email}</h1>
