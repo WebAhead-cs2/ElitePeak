@@ -20,8 +20,7 @@ function layout(content) {
             </nav>
           </header>
           ${content}
-          
-          <script src='/rooms.js'></script>
+
 
           <script src='/home.js'></script>
 
@@ -195,14 +194,18 @@ function layout(content) {
 </div>
 </div>`)
   }
-  function getrooms(){
+  function getrooms(hotel_id,departure_date,arrival_date,rec_guest_qty)
+    
+    {
    return layout(`
      <div class = "container">
      <h1 class = "title" id="ElitePeak">ElitePeak</h2>
      <div class = "room-wrapper">
         <div class = "room-result">
             <h2 class = "title">Available rooms:</h2>
-            <div id= "room">
+            <div id= "room"  >
+            <p id ="details" class = ${hotel_id}/${departure_date}/${arrival_date}/${rec_guest_qty} hidden></p>
+
               <!-- room item -->
                <!--<div class = "room-item">
                 <div class = "room-img">

@@ -113,11 +113,14 @@ server.post("/payment", (req,res)=>{
     res.status(500).send(`<p>Something went wrong saving your data</p>`);
   });
 });
-server.get("/rooms",(req,res)=>{
- const room=templates.getrooms();
+server.get("/rooms",async(req,res)=>{
+  let r = await db.query(`SELECT * FROM rooms`);
+  const room=templates.getrooms(r.rows[0].hotel_id,r.rows[0].departure_date,r.rows[0].arrival_date,r.rows[0].rec_guest_qty);
+
  res.send(room);
 });
 server.get("/log-out", (req, res) => {
   res.clearCookie("email");
   res.redirect("/");
 });
+
