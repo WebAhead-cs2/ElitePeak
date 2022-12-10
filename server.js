@@ -113,6 +113,10 @@ server.post("/payment", (req,res)=>{
     res.status(500).send(`<p>Something went wrong saving your data</p>`);
   });
 });
+server.get("/rooms",(req,res)=>{
+ const room=templates.getrooms();
+ res.send(room);
+});
 server.get("/log-out", (req, res) => {
   res.clearCookie("email");
   res.redirect("/");

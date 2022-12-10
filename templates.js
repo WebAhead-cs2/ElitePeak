@@ -20,7 +20,13 @@ function layout(content) {
             </nav>
           </header>
           ${content}
-          <script src = "homeJS.js"></script>
+          
+          <script src='/rooms.js'></script>
+
+          <script src='/home.js'></script>
+
+
+
         </body>
       </html>
     `);
@@ -59,7 +65,6 @@ function layout(content) {
               <img src = "https://cf.bstatic.com/xdata/images/hotel/square1000/400959311.jpg?k=86212bb3279269c91bb9f66d209cd1c7e3c9ab9d53a396b626fd5c5ae756052a&o=" alt = "hotel">
             </div>
             <div class = "hotel-name">
-              <h3>Potato Chips</h3>
               <a href = "#" class = "rooms-btn">Get rooms</a>
             </div>
           </div> -->
@@ -84,7 +89,6 @@ function layout(content) {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet aliquam voluptatibus ad obcaecati magnam, esse numquam nisi ut adipisci in?</p>
           </div>
           <div class = "rooms-hotel-img">
-            <img src = "food.jpg" alt = "">
           </div>
           <div class = "rooms-link">
             <a href = "#" target = "_blank">Watch Video</a>
@@ -148,23 +152,24 @@ function layout(content) {
     <div class="col-md-7 col-sm-12 p-0 box">
       <div class="card rounded-0 border-0 card2" id="paypage">
         <div class="form-card" >
-                    <h2 id="heading2" class="text-danger">Payment Method</h2>
-                    <div class="radio-group">
-                        <div class='radio' data-value="credit"><img src="https://i.imgur.com/28akQFX.jpg" width="200px" height="60px"></div>
-                        <div class='radio' data-value="paypal"><img src="https://i.imgur.com/5QFsx7K.jpg" width="200px" height="60px"></div>
-                        <br>
-                    </div>
-                    <form method='post'>
-                    <label class="pay">Name on Card</label>
-                    <input type="text" name="name_on_card" id="name_on_card">
-                    <div class="row">
-                        <div class="col-8 col-md-6">
-                            <label class="pay">Card Number</label>
-                            <input type="text" name="card_number" id="card_number" placeholder="0000-0000-0000-0000" >
-                        </div>
+          <h1 id="heading2" class="text-danger">Payment Method</h1>
+          <h3 id="accept card" class="txt">WE ACCEPT</h3>
+            <div class="radio-group">
+              <div class='radio' data-value="credit"><img src="https://i.imgur.com/28akQFX.jpg" width="200px" height="60px"></div>
+                <div class='radio' data-value="paypal"><img src="https://i.imgur.com/5QFsx7K.jpg" width="200px" height="60px"></div>
+                  <br>
+              </div>
+        <form method='post'>
+         <label class="pay">Name on Card</label>
+         <input type="text" name="name_on_card" id="name_on_card" required>
+          <div class="row">
+          <div class="col-8 col-md-6">
+            <label class="pay">Card Number</label>
+            <input type="text" name="card_number" id="card_number" placeholder="0000-0000-0000-0000" required>
+            </div>
                         <div class="col-4 col-md-6">
                             <label class="pay">CVV</label>
-                            <input type="password" name="cvv" placeholder="&#9679;&#9679;&#9679;" class="placeicon" >
+                            <input type="password" name="cvv" placeholder="&#9679;&#9679;&#9679;" class="placeicon" minlength="3" maxlength="3" required>
                         </div>
                     </div>
                     <div class="row">
@@ -172,12 +177,12 @@ function layout(content) {
                             <label class="pay">Expiration Date</label>
                         </div>
                         <div class="col-md-12">
-                            <input type="text" name="expiration_date" id="expiration_date" placeholder="MM/YY" >
+                            <input type="text" name="expiration_date" id="expiration_date" placeholder="MM/YY" minlength="5" maxlength="5" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="submit" value="MAKE A PAYMENT &nbsp; &#xf178;" class="btn btn-info placeicon">
+                            <input type="submit"  value="MAKE A PAYMENT &nbsp; &#xf178;" class="btn btn-info placeicon">
                         </div>
                     </div>
                 </div>
@@ -190,9 +195,33 @@ function layout(content) {
 </div>
 </div>`)
   }
+  function getrooms(){
+   return layout(`
+     <div class = "container">
+     <h1 class = "title" id="ElitePeak">ElitePeak</h2>
+     <div class = "room-wrapper">
+        <div class = "room-result">
+            <h2 class = "title">Available rooms:</h2>
+            <div id= "room">
+              <!-- room item -->
+               <!--<div class = "room-item">
+                <div class = "room-img">
+                  <img src = "https://cf.bstatic.com/xdata/images/room/square1000/400959311.jpg?k=86212bb3279269c91bb9f66d209cd1c7e3c9ab9d53a396b626fd5c5ae756052a&o=" alt = "room">
+                </div>
+                <div class = "room-name">                  <a href = "#" class = "rooms-btn">Get rooms</a>
+                </div>
+              </div> -->
+              <!-- end of room item -->
+            </div>
+          </div>
+        </div>
+    </div>
+   
+   `);
+  }
   function error(message) {
     return layout(/*html*/ `
       <h1>${message}</h1>
     `);
   }
-  module.exports = {home,SignUp,logIn,payment,error};
+  module.exports = {home,SignUp,logIn,payment,error,getrooms};
