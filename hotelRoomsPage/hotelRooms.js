@@ -1,11 +1,17 @@
+
+//const db = require("../database/connection.js");
 const details = document.getElementById('details');//<<<<<<<<<<<<<<<<
+// import {hotel_id} from "../HomePage/homeJS.js";
+// import {departure_date} from "../HomePage/homeJS.js";
+// import {arrival_date} from "../HomePage/homeJS.js";
+// import {rec_guest_qty} from "../HomePage/homeJS.js";
 
 const roomList = document.getElementById('room');
 getroomList();
 //export function  getroomList(hotel_id,departure_date,arrival_date,rec_guest_qty){
 //db.query(`INSERT INTO reservation (hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES ($1, $2, $3, $4) RETURNING *`, [hotel_id, departure_date, arrival_date, rec_guest_qty])    
-roomList.addEventListener('click', paymentPage);  
-function getroomList(dataFromHotels)
+
+ function  getroomList()
  { //<<<<<<<<<<<<<<<<<
     let hotelItemDetails=details.className.split("/");
     console.log(hotelItemDetails);
@@ -27,9 +33,8 @@ function getroomList(dataFromHotels)
         }
     };
     
-   //fetch(`https://apidojo-booking-v1.p.rapidapi.com/properties/v2/get-rooms?room_id=${hotel_id}&departure_date=${departure_date}&arrival_date=${arrival_date}&rec_guest_qty=${rec_guest_qty}&rec_room_qty=1&currency_code=USD&languagecode=en-us&units=imperial`, options)
-   //fetch('https://apidojo-booking-v1.p.rapidapi.com/properties/v2/get-rooms?hotel_id=1720410&departure_date=2023-1-20&arrival_date=2023-1-10&rec_guest_qty=2&rec_room_qty=1&currency_code=USD&languagecode=en-us&units=imperial', options)
-     fetch(`https://apidojo-booking-v1.p.rapidapi.com/properties/v2/get-rooms?hotel_id=${hotel_id}&departure_date=${departure_date}&arrival_date=${arrival_date}&rec_guest_qty=${rec_guest_qty}&rec_room_qty=1&currency_code=USD&languagecode=en-us&units=imperial`, options)     
+   // fetch(`https://apidojo-booking-v1.p.rapidapi.com/properties/v2/get-rooms?room_id=${hotel_id}&departure_date=${departure_date}&arrival_date=${arrival_date}&${rec_guest_qty}=2&rec_room_qty=1&currency_code=USD&languagecode=en-us&units=imperial`, options)
+   fetch('https://apidojo-booking-v1.p.rapidapi.com/properties/v2/get-rooms?hotel_id=1720410&departure_date=2023-1-20&arrival_date=2023-1-10&rec_guest_qty=2&rec_room_qty=1&currency_code=USD&languagecode=en-us&units=imperial', options)     
    .then(response => response.json())
         .then(async data => {
             console.log(data);
@@ -84,12 +89,3 @@ function getroomList(dataFromHotels)
         .catch(err => console.error(err));
 }
 //export default {getroomList};
-function paymentPage(e)
-{
-    
-    e.preventDefault();
-    if(e.target.classList.contains('rooms-btn'))
-    {
-       window.location.href = "/payment";
-    }
-}

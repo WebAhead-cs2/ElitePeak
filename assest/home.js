@@ -10,7 +10,7 @@ const hotelDetailsContent = document.querySelector('.hotel-details-content');
 const roomsCloseBtn = document.getElementById('rooms-close-btn');
 
 // event listeners
-searchBtn.addEventListener('click',gethotelList);
+searchBtn.addEventListener('click', gethotelList);
 hotelList.addEventListener('click', gethotelrooms);
 roomsCloseBtn.addEventListener('click', () => {
     hotelDetailsContent.parentElement.classList.remove('showrooms');
@@ -70,6 +70,8 @@ async function  gethotelList()
              if(data.result){
             data.result.forEach(hotel => {
                 let imageUrl
+                console.log(hotel.hotel_id);
+
             //    callback(hotel.hotel_id)
             //    .then(
                // (imageUrl)=>{console.log(imageUrl);
@@ -147,7 +149,7 @@ function gethotelrooms(e)
        rec_guest_qty=hotelItemDetails[3]
        console.log(departure_date);
        // exported fun
-       
+       window.location.href = "/rooms";
        //db.query(`INSERT INTO reservation (hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES ($1, $2, $3, $4) RETURNING *`, [hotel_id, departure_date, arrival_date, rec_guest_qty])
        //getroomList(hotel_id,departure_date,arrival_date,letrec_guest_qty);
        console.log("hiii"); 

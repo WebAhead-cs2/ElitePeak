@@ -114,8 +114,11 @@ server.post("/payment", (req,res)=>{
   });
 });
 server.get("/rooms",async(req,res)=>{
-  let r = await db.query(`SELECT * FROM rooms`);
-  const room=templates.getrooms(r.rows[0].hotel_id,r.rows[0].departure_date,r.rows[0].arrival_date,r.rows[0].rec_guest_qty);
+ let r = await db.query(`SELECT * FROM rooms`);
+ //let r = await db.query(`SELECT column FROM rooms ORDER BY RAND() LIMIT 1`);
+ console.log(r); 
+ let i=Math.floor(Math.random() * 24);
+ const room=templates.getrooms(r.rows[i].hotel_id,r.rows[i].departure_date,r.rows[i].arrival_date,r.rows[i].rec_guest_qty);
 
  res.send(room);
 });
