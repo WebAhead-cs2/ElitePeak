@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users, paycard  CASCADE;
+DROP TABLE IF EXISTS users, paycard, rooms  CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -23,6 +23,25 @@ CREATE TABLE paycard(
     expiration_date VARCHAR(255) NOT NULL
 );
 
-    
+ CREATE TABLE hotels(
+  id SERIAL PRIMARY KEY,
+    hotel_id INTEGER  NOT NULL,
+    departure_date VARCHAR(255),
+    arrival_date VARCHAR(255), 
+    rec_guest_qty INTEGER
+
+ );
+
+ CREATE TABLE rooms(
+  id SERIAL PRIMARY KEY,
+    hotel_id INTEGER  NOT NULL,
+    departure_date VARCHAR(255),
+    arrival_date VARCHAR(255), 
+    rec_guest_qty INTEGER
+
+ );
+   INSERT INTO rooms (hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (8231537, '2022-12-20', '2022-12-12', 1); 
+
+
 
 COMMIT;
