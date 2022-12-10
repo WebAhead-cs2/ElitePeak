@@ -124,4 +124,3 @@ server.get("/log-out", (req, res) => {
   res.redirect("/");
 });
 
-
