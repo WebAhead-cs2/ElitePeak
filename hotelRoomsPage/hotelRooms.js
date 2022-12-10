@@ -1,6 +1,6 @@
 
-const db = require("../database/connection.js");
-
+//const db = require("../database/connection.js");
+const details = document.getElementById('details');//<<<<<<<<<<<<<<<<
 // import {hotel_id} from "../HomePage/homeJS.js";
 // import {departure_date} from "../HomePage/homeJS.js";
 // import {arrival_date} from "../HomePage/homeJS.js";
@@ -12,12 +12,19 @@ getroomList();
 //db.query(`INSERT INTO reservation (hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES ($1, $2, $3, $4) RETURNING *`, [hotel_id, departure_date, arrival_date, rec_guest_qty])    
 
  function  getroomList()
- { 
-    db.query(`SELECT * FROM reservation WHERE id=(SELECT max(id) FROM reservation);`,function (err, result, fields) {
-        if (err) throw err;
-        console.log(result);
-      }); 
-    console.log(hotel_id);
+ { //<<<<<<<<<<<<<<<<<
+    let hotelItemDetails=details.className.split("/");
+    console.log(hotelItemDetails);
+    let hotel_id =hotelItemDetails[0]
+    let departure_date=hotelItemDetails[1]
+    let arrival_date=hotelItemDetails[2]
+    let rec_guest_qty=hotelItemDetails[3]
+    //<<<<<<<<<<<<<<<<<
+    // db.query(`SELECT * FROM reservation WHERE id=(SELECT max(id) FROM reservation);`,function (err, result, fields) {
+    //     if (err) throw err;
+    //     console.log(result);
+    //   }); 
+    // console.log(hotel_id);
     const options = {
         method: 'GET',
         headers: {

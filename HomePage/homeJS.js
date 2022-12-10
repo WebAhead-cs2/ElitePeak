@@ -1,4 +1,4 @@
- //const db = require("../database/connection.js");
+//const db = require("../database/connection.js");
 //import {db} from "../database/connection.js";
 //import {getroomList} from "../hotelRoomsPage/hotelRooms.js";
 const searchBtn = document.getElementById('search-btn');
@@ -18,6 +18,7 @@ let html = "";
 // get hotel list that matches with the ingredients
 function getIdDesFromLocation(location)
 { let desId;
+    console.log(hotelList.className);
     const options = {
         method: 'GET',
         headers: {

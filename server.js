@@ -20,12 +20,6 @@ const email= req.cookies.email;
     
   
 });
-server.post("/", (req, res) => {
-  console.log(res.body);
- console.log(req.body);
-      
-    
-  });
 server.get("/LogIn", (req, res) => {
   const html = templates.logIn();
   res.send(html);
@@ -37,7 +31,6 @@ server.get("/SignUp", (req, res) => {
 
 server.post("/SignUp", (req, res) => {
   const {email, password, birthdate, first_name, last_name, country, phone, gender} = req.body;
-  console.log(req.body);
   bcrypt
   .hash(password, saltRounds)
     const salt = bcrypt.genSaltSync(saltRounds);
@@ -119,6 +112,12 @@ server.post("/payment", (req,res)=>{
     console.log(error);
     res.status(500).send(`<p>Something went wrong saving your data</p>`);
   });
+});
+server.get("/rooms",async(req,res)=>{
+  let r = await db.query(`SELECT * FROM rooms`);
+  const room=templates.getrooms(r.rows[0].hotel_id,r.rows[0].departure_date,r.rows[0].arrival_date,r.rows[0].rec_guest_qty);
+
+ res.send(room);
 });
 server.get("/log-out", (req, res) => {
   res.clearCookie("email");
