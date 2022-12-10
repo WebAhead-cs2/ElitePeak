@@ -1,5 +1,6 @@
-
-import { getroomList } from "../hotelRoomsPage/hotelRooms";
+ //const db = require("../database/connection.js");
+//import {db} from "../database/connection.js";
+//import {getroomList} from "../hotelRoomsPage/hotelRooms.js";
 const searchBtn = document.getElementById('search-btn');
 const hotelList = document.getElementById('hotel');
 const hotelDetailsContent = document.querySelector('.hotel-details-content');
@@ -124,22 +125,29 @@ async function  gethotelList()
 //         .then(response => console.log(response))
 //         .catch(err => console.error(err));
 // }
+// export let hotel_id;
+// export let departure_date;
+// export let arrival_date;
+// export let rec_guest_qty;
 
 function gethotelrooms(e)
 {
     
     e.preventDefault();
     if(e.target.classList.contains('rooms-btn'))
-    {let hotelItem = e.target.parentElement.parentElement;
-        hotelItemDetails=hotelItem.dataset.id.split("/");
-       let hotel_id =hotelItemDetails[0]
-       let departure_date=hotelItemDetails[1]
-       let arrival_date=hotelItemDetails[2]
-       let letrec_guest_qty=hotelItemDetails[3]
+    {
+        let hotelItem = e.target.parentElement.parentElement;
+       let hotelItemDetails=hotelItem.dataset.id.split("/");
+       hotel_id =hotelItemDetails[0]
+       departure_date=hotelItemDetails[1]
+       arrival_date=hotelItemDetails[2]
+       rec_guest_qty=hotelItemDetails[3]
        console.log(departure_date);
+       db.query(`INSERT INTO reservation (hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES ($1, $2, $3, $4) RETURNING *`, [hotel_id, departure_date, arrival_date, rec_guest_qty])
        window.location.href = "../hotelRoomsPage/hotelRooms.html";
-       getroomList(hotel_id,departure_date,arrival_date,letrec_guest_qty);
-        // gethotelList(hotel_id,departure_date,arrival_date,letrec_guest_qty)
+       //getroomList(hotel_id,departure_date,arrival_date,letrec_guest_qty);
+       console.log("hiii"); 
+       // gethotelList(hotel_id,departure_date,arrival_date,letrec_guest_qty)
     }
 }
 

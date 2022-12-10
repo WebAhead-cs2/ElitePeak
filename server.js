@@ -20,6 +20,12 @@ const email= req.cookies.email;
     
   
 });
+server.post("/", (req, res) => {
+  console.log(res.body);
+ console.log(req.body);
+      
+    
+  });
 server.get("/LogIn", (req, res) => {
   const html = templates.logIn();
   res.send(html);
@@ -31,6 +37,7 @@ server.get("/SignUp", (req, res) => {
 
 server.post("/SignUp", (req, res) => {
   const {email, password, birthdate, first_name, last_name, country, phone, gender} = req.body;
+  console.log(req.body);
   bcrypt
   .hash(password, saltRounds)
     const salt = bcrypt.genSaltSync(saltRounds);

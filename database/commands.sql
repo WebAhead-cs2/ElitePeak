@@ -23,6 +23,7 @@ CREATE TABLE paycard(
     expiration_date VARCHAR(255) NOT NULL
 );
 CREATE TABLE reservation(
+    id SERIAL PRIMARY KEY,
     hotel_id VARCHAR(255) NOT NULL,
     departure_date VARCHAR(255) NOT NULL,
     arrival_date VARCHAR(255) NOT NULL,

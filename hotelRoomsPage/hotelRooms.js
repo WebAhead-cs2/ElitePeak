@@ -1,12 +1,23 @@
 
-//const db = require("../database/connection.js");
+const db = require("../database/connection.js");
+
+// import {hotel_id} from "../HomePage/homeJS.js";
+// import {departure_date} from "../HomePage/homeJS.js";
+// import {arrival_date} from "../HomePage/homeJS.js";
+// import {rec_guest_qty} from "../HomePage/homeJS.js";
+
 const roomList = document.getElementById('room');
-//getroomList();
-function  getroomList(hotel_id,departure_date,arrival_date,rec_guest_qty){
+getroomList();
+//export function  getroomList(hotel_id,departure_date,arrival_date,rec_guest_qty){
 //db.query(`INSERT INTO reservation (hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES ($1, $2, $3, $4) RETURNING *`, [hotel_id, departure_date, arrival_date, rec_guest_qty])    
 
-// function  getroomList()
-// {
+ function  getroomList()
+ { 
+    db.query(`SELECT * FROM reservation WHERE id=(SELECT max(id) FROM reservation);`,function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+      }); 
+    console.log(hotel_id);
     const options = {
         method: 'GET',
         headers: {
@@ -70,4 +81,4 @@ function  getroomList(hotel_id,departure_date,arrival_date,rec_guest_qty){
         })
         .catch(err => console.error(err));
 }
-export default {getroomList};
+//export default {getroomList};

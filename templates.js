@@ -20,14 +20,14 @@ function layout(content) {
             </nav>
           </header>
           ${content}
-          <script src = "homeJS.js"></script>
+         
         </body>
       </html>
     `);
   }
 
   function  home(email) {
-    if (email) {
+   // if (email) {
       return layout(/*html */ `
         <h1>Welcome back ${email}</h1>
         <div class = "container">
@@ -96,13 +96,13 @@ function layout(content) {
 
         <a href="/log-out">Log out</a>
       `);
-    }
-     else{
-      return layout(`
-         <h1>Elite Peak</h1>
+    // }
+    //  else{
+    //   return layout(`
+    //      <h1>Elite Peak</h1>
        
-     `)
-     } 
+    //  `)
+    //  } 
   }
   function logIn() {
     return layout( `
