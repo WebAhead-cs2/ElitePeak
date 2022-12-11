@@ -24,7 +24,7 @@ function getIdDesFromLocation(location)
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'e6aa3198d3msh586bfddf926f020p191742jsnd77f2ff2dc0c',
+            'X-RapidAPI-Key': '9516da75bamshe3fdf364b0ea658p1c4bb1jsn4ab231a13590',
             'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com'
         }
     };
@@ -54,7 +54,7 @@ async function  gethotelList()
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'e6aa3198d3msh586bfddf926f020p191742jsnd77f2ff2dc0c',
+            'X-RapidAPI-Key': '9516da75bamshe3fdf364b0ea658p1c4bb1jsn4ab231a13590',
             'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com'
         }
     };

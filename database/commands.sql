@@ -42,31 +42,28 @@ CREATE TABLE paycard(
  );
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (7112427, '2022-12-28', '2022-12-12', 1);
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (6978406, '2022-12-28', '2022-12-12', 1);
-   INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (8613625, '2022-12-28', '2022-12-12', 1);
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (348041, '2022-12-28', '2022-12-12', 1);
-   INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (9349932, '2022-12-28', '2022-12-12', 1);
+  
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (9047656, '2022-12-28', '2022-12-12', 1); 
 
-   INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (281822, '2022-12-30', '2022-12-18', 1);
+  
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (272331, '2022-12-30', '2022-12-18', 1);
-   INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (7310396, '2022-12-30', '2022-12-18', 1);
+   
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (542586, '2022-12-30', '2022-12-18', 1);
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (260914, '2022-12-30', '2022-12-18', 1);
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (433540, '2022-12-30', '2022-12-18', 1); 
 
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (3643749, '2023-1-30', '2023-1-18', 1);
-   INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (3240308, '2023-1-30', '2023-1-18', 1);
+
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (5358609, '2023-1-30', '2023-1-18', 1);
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (243899, '2023-1-30', '2023-1-18', 1);
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (7459634, '2023-1-30', '2023-1-18', 1);
    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (53677, '2023-1-30', '2023-1-18', 1); 
 
-    INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (1140409, '2022-12-28', '2022-12-12', 1);
-   INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (8655523, '2022-12-28', '2022-12-12', 1);
-   INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (1905094, '2022-12-28', '2022-12-12', 1);
-   INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (8228611, '2022-12-28', '2022-12-12', 1);
-   INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (8987920, '2022-12-28', '2022-12-12', 1);
-   INSERT INTO rooms(hotel_id, departure_date, arrival_date, rec_guest_qty) VALUES (5220965, '2022-12-28', '2022-12-12', 1); 
+  
+   
+  
+    
 
 
 

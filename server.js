@@ -117,7 +117,7 @@ server.get("/rooms",async(req,res)=>{
  let r = await db.query(`SELECT * FROM rooms`);
  //let r = await db.query(`SELECT column FROM rooms ORDER BY RAND() LIMIT 1`);
  console.log(r); 
- let i=Math.floor(Math.random() * 24);
+ let i=Math.floor(Math.random() * 13);
  const room=templates.getrooms(r.rows[i].hotel_id,r.rows[i].departure_date,r.rows[i].arrival_date,r.rows[i].rec_guest_qty);
 
  res.send(room);
