@@ -8,15 +8,18 @@ function layout(content) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Elite Peak</title>
         <link rel="stylesheet" href="/style.css">
+        
       </head>
       <body>
         <header>
           <nav>
-            <a href="/">Home</a>
-            <a href="/Reservation">Reservation</a>
-            <a href="/payment">Payment</a>
-            <a href="/SignUp">Sign Up</a>
-            <a href="/LogIn">Log In</a>
+          <h1 class = "title" id="ElitePeak">ElitePeak</h2>
+            <a class =pages href="/">Home</a>
+            <a class =pages href="/Reservation">Reservation</a>
+            <a class =pages href="/payment">Payment</a>
+            <a class =pages href="/SignUp">Sign Up</a>
+            <a class =pages href="/LogIn">Log In</a>
+         
           </nav>
         </header>
         ${content}
@@ -36,9 +39,10 @@ function layout(content) {
 function home(email) {
   if (email) {
     return layout(/*html */ `
+
       <h1>Welcome back ${email}</h1>
       <div class = "container">
-  <h1 class = "title" id="ElitePeak">ElitePeak</h2>
+ 
   <div class = "hotel-wrapper">
     <div class = "hotel-search">
       <h2 class = "title">Find your next stay</h2>
@@ -47,6 +51,7 @@ function home(email) {
       </blockquote>
 
       <div class = "hotel-search-box">
+      
         <input type = "text" class = "search-control" placeholder="Where are you going?" id = "search-location">
         <input type = "text" class = "search-control" placeholder="Check in" id = "search-checkIn" required pattern="\d{4}-d{2}-d{2}" onfocus="this.type='date'">
         <input type = "text" class = "search-control" placeholder="Check out" id = "search-checkOut"onfocus="this.type='date'" >
@@ -201,7 +206,7 @@ function getrooms(hotel_id,departure_date,arrival_date,rec_guest_qty)
   {
  return layout(`
    <div class = "container">
-   <h1 class = "title" id="ElitePeak">ElitePeak</h2>
+   
    <div class = "room-wrapper">
       <div class = "room-result">
           <h2 class = "title">Available rooms:</h2>
